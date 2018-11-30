@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'FrontendController@index');
+    Route::get('photo/{photoId}', 'FrontendController@show')->name('photo.show');
 });
 
-Auth::routes();
+Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
+    Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/', 'PhotosController@index');
+        Route::post('photos/reorder', 'PhotosController@reorder');
+        Route::resource('photos', 'PhotosController');
+    });
+});
+

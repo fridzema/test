@@ -35,29 +35,20 @@ class Photo extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('thumb')
-              ->width(368)
-              ->height(232)
-              ->sharpen(10);
+        $this->addMediaConversion('small')
+            ->width(300)
+            ->quality(75)
+            ->optimize()
+            ->nonQueued();
+
+        $this->addMediaConversion('medium')
+            ->width(600)
+            ->optimize()
+            ->nonQueued();
+
+        $this->addMediaConversion('large')
+            ->width(1800)
+            ->optimize()
+            ->nonQueued();
     }
-
-
-    // public function registerMediaConversions(Media $media = null)
-    // {
-    //     $this->addMediaConversion('small')
-    //         ->width(300)
-    //         ->quality(75)
-    //         ->optimize()
-    //         ->nonQueued();
-
-    //     $this->addMediaConversion('medium')
-    //         ->width(600)
-    //         ->optimize()
-    //         ->nonQueued();
-
-    //     $this->addMediaConversion('large')
-    //         ->width(1800)
-    //         ->optimize()
-    //         ->nonQueued();
-    // }
 }

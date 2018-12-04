@@ -12,9 +12,8 @@
     </script>
 </head>
 <body>
-
-		@yield('content')
-
+  <div id="app">
+    @yield('content')
 		@if(Auth::user())
 		  <a class="logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 		    Logout
@@ -23,6 +22,7 @@
 				{{ csrf_field() }}
 			</form>
 		@endif
+  </div>
 	@yield('scripts')
 </body>
 </html>

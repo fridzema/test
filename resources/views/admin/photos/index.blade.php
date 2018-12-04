@@ -26,6 +26,7 @@
 		</a>
 	@endforeach
 </div>
+      <example-component></example-component>
 @endsection
 
 @section('scripts')

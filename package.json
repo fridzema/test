@@ -12,9 +12,10 @@
     "devDependencies": {
         "axios": "^0.16.2",
         "cross-env": "^5.1",
+        "dropzone": "^5.1.1",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
-        "dropzone": "^5.1.1",
-        "sortablejs": "^1.6.0"
+        "sortablejs": "^1.6.0",
+        "vue": "^2.5.17"
     }
 }

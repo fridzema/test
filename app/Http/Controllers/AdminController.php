@@ -6,6 +6,7 @@ use App\Photo;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Storage;
+use App\Jobs\ConvertPhoto;
 
 class AdminController extends Controller
 {
@@ -23,6 +24,14 @@ class AdminController extends Controller
     public function index()
     {
         $photos = Photo::all();
+
+        // $test = Photo::find(2);
+        // dd(Storage::disk('photos_private')->exists($test->storage_path));
+        // dd($this->photo_private_disk->get($test->storage_path));
+        // $image = Image::make($this->photo_private_disk->path($test->storage_path));
+
+        // dd($image->encode());
+        // Storage::put($path, (string) $image->encode());
 
         return response()->view('admin.photos.index', ['photos' => $photos]);
     }
@@ -46,22 +55,22 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         foreach ($request->file('file') as $file) {
-            $exif_data = [];
-            $iptc_data = [];
-            $intervention_image = Image::make($file->getRealPath());
-            $exif_data = ($intervention_image->exif()) ? json_encode($intervention_image->exif()) : null;
-            $iptc_data = ($intervention_image->iptc()) ? json_encode($intervention_image->iptc()) : null;
+            // $exif_data = [];
+            // $iptc_data = [];
+            // $intervention_image = Image::make($file->getRealPath());
+            // $exif_data = ($intervention_image->exif()) ? json_encode($intervention_image->exif()) : null;
+            // $iptc_data = ($intervention_image->iptc()) ? json_encode($intervention_image->iptc()) : null;
 
             $photo = new Photo();
             $photo->filename = $file->getClientOriginalName();
             $photo->extension = $file->getClientOriginalExtension();
-            $photo->exif = $exif_data;
-            $photo->iptc = $iptc_data;
+            // $photo->exif = $exif_data;
+            // $photo->iptc = $iptc_data;
             $photo->save();
 
-            $destination_path = $photo->destination_path;
-            $uploaded_file = $this->streamFile($file->getRealPath(), $destination_path);
-            // $this->performConversions($intervention_image);
+            $uploaded_file = $this->streamFile($file->getRealPath(), $photo->storage_path);
+            // IndexPhoto::dispatchNow($photo);
+            ConvertPhoto::dispatchNow($photo);
         }
 
         return response()->json(['success' => true]);
@@ -75,8 +84,10 @@ class AdminController extends Controller
         fclose($stream);
       }
 
-      return $this->photo_private_disk->get($destination_path);
+      return $this->photo_private_disk->path($destination_path);
     }
+
+
 
 
     /**

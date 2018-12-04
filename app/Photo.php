@@ -28,14 +28,18 @@ class Photo extends Model
         'iptc' => 'array',
     ];
 
+    public function getFolderNameAttribute()
+    {
+      return sha1($this->id);
+    }
 
-    public function getDestinationPathAttribute()
+    public function getStoragePathAttribute()
     {
       return sprintf('%s/%s', sha1($this->id), $this->filename);
     }
 
     public function getUrlAttribute()
     {
-      return (Storage::disk('photos_private')->exists($this->destination_path)) ? asset(Storage::disk('photos_private')->url($this->destination_path)) : config('system.image_placeholder_url');
+      return (Storage::disk('photos_private')->exists($this->storage_path)) ? asset(Storage::disk('photos_private')->url($this->storage_path)) : config('system.image_placeholder_url');
     }
 }

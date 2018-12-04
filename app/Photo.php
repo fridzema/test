@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Storage;
+
 class Photo extends Model
 {
     protected static function boot()
@@ -26,4 +28,15 @@ class Photo extends Model
         'exif' => 'array',
         'iptc' => 'array',
     ];
+
+
+    public function getDestinationPathAttribute()
+    {
+      return sprintf('%s/%s', sha1($this->id), $this->filename);
+    }
+
+    public function getUrlAttribute()
+    {
+      return (Storage::disk('photos_private')->exists($this->destination_path)) ? asset(Storage::disk('photos_private')->url($this->destination_path)) : config('system.image_placeholder_url');
+    }
 }

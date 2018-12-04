@@ -54,13 +54,14 @@ class AdminController extends Controller
 
             $photo = new Photo();
             $photo->filename = $file->getClientOriginalName();
+            $photo->extension = $file->getClientOriginalExtension();
             $photo->exif = $exif_data;
             $photo->iptc = $iptc_data;
             $photo->save();
 
-            $destination_path = sprintf('%s/%s.%s', sha1($photo->id), $file->getClientOriginalName(), $file->getClientOriginalExtension());
+            $destination_path = $photo->destination_path;
             $uploaded_file = $this->streamFile($file->getRealPath(), $destination_path);
-            // $this->performConversions($uploaded_file);
+            // $this->performConversions($intervention_image);
         }
 
         return response()->json(['success' => true]);
@@ -77,11 +78,6 @@ class AdminController extends Controller
       return $this->photo_private_disk->get($destination_path);
     }
 
-    public function performConversions($file)
-    {
-
-
-    }
 
     /**
      * Display the specified resource.

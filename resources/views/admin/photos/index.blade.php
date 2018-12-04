@@ -8,18 +8,18 @@
 <form id="dropzone" class="dropzone">
   <div class="dz-message" data-dz-message><span>Upload</span></div>
 </form>
-
 <div id="photos">
-  <div class="ui four cards">
-	 @foreach($photos as $photo)
+
+  <div class="ui eight cards">
+   @foreach($photos as $photo)
     <div class="card">
       <div class="image">
-        <img class="ui image" src="{{ $photo->getUrl }}" alt="Photo not found" title="{{$photo->filename}}" />
+        <img class="ui image" src="{{ $photo->url }}" alt="Photo not found" title="{{$photo->filename}}" />
       </div>
      <div class="content">
       <div class="header">{{$photo->filename}}</div>
       <div class="meta">
-        <a>jpg</a>
+        <a>{{$photo->extension}}</a>
       </div>
 {{--       <div class="description">
         Matthew is an interior designer living in New York.

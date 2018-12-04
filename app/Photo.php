@@ -3,14 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\Models\Media;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Photo extends Model implements HasMedia
+class Photo extends Model
 {
-    use HasMediaTrait;
-
     protected static function boot()
 		{
 		    parent::boot();
@@ -31,24 +26,4 @@ class Photo extends Model implements HasMedia
         'exif' => 'array',
         'iptc' => 'array',
     ];
-
-
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('small')
-            ->width(300)
-            ->quality(75)
-            ->optimize()
-            ->nonQueued();
-
-        $this->addMediaConversion('medium')
-            ->width(600)
-            ->optimize()
-            ->nonQueued();
-
-        $this->addMediaConversion('large')
-            ->width(1800)
-            ->optimize()
-            ->nonQueued();
-    }
 }

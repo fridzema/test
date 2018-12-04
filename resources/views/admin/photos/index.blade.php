@@ -10,23 +10,48 @@
 </form>
 
 <div id="photos">
-	@foreach($photos as $photo)
-		<a data-model-id="{{ $photo->id }}" data-order-id="@if(!is_null($photo->id)){{ $photo->id }}@endif">
-			<img src="{{ asset($photo->getMedia('images')->first()->getUrl('small')) }}" alt="Photo not found" title="{{$photo->filename}}" />
+  <div class="ui four cards">
+	 @foreach($photos as $photo)
+    <div class="card">
+      <div class="image">
+        <img class="ui image" src="{{ $photo->getUrl }}" alt="Photo not found" title="{{$photo->filename}}" />
+      </div>
+     <div class="content">
+      <div class="header">{{$photo->filename}}</div>
+      <div class="meta">
+        <a>jpg</a>
+      </div>
+{{--       <div class="description">
+        Matthew is an interior designer living in New York.
+      </div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+          Joined in 2013
+        </span>
+        <span>
+          <i class="user icon"></i>
+          75 Friends
+        </span>
+      </div> --}}
+      </div>
+    </div>
+    @endforeach
+  </div>
+{{--     <a data-model-id="{{ $photo->id }}" data-order-id="@if(!is_null($photo->id)){{ $photo->id }}@endif">
+      <img src="{{ asset($photo->getMedia('images')->first()->getUrl('small')) }}" alt="Photo not found" title="{{$photo->filename}}" />
       <button class="btn drag-handle">
         <img src="{{asset('icons/move.svg')}}" width="20" height="20" />
       </button>
      <button type="submit" class="btn delete" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">
-     	<img src="{{asset('icons/trash.svg')}}" width="20" height="20" />
+      <img src="{{asset('icons/trash.svg')}}" width="20" height="20" />
      </button>
-		<form id="delete-form" method="post" action="{{ route('photos.destroy', $photo->id) }}" style="display: none;">
-			<input name="_method" type="hidden" value="DELETE" />
-  		{{ csrf_field() }}
-  	</form>
-		</a>
-	@endforeach
+    <form id="delete-form" method="post" action="{{ route('photos.destroy', $photo->id) }}" style="display: none;">
+      <input name="_method" type="hidden" value="DELETE" />
+      {{ csrf_field() }}
+    </form>
+    </a> --}}
 </div>
-      <example-component></example-component>
 @endsection
 
 @section('scripts')

@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Photo;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
+use Storage;
 
-class PhotosController extends Controller
+class AdminController extends Controller
 {
+    protected $photo_private_disk;
+
+    public function __construct()
+    {
+      $this->photo_private_disk = Storage::disk('photos_private');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -38,22 +45,42 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-        foreach ($request->file('file') as $requestFile) {
+        foreach ($request->file('file') as $file) {
             $exif_data = [];
             $iptc_data = [];
-            $intervention_image = Image::make($requestFile->getRealPath());
+            $intervention_image = Image::make($file->getRealPath());
             $exif_data = ($intervention_image->exif()) ? json_encode($intervention_image->exif()) : null;
             $iptc_data = ($intervention_image->iptc()) ? json_encode($intervention_image->iptc()) : null;
 
             $photo = new Photo();
-            $photo->filename = $requestFile->getClientOriginalName();
+            $photo->filename = $file->getClientOriginalName();
             $photo->exif = $exif_data;
             $photo->iptc = $iptc_data;
-            $photo->addMedia($requestFile)->toMediaCollection('images');
             $photo->save();
+
+            $destination_path = sprintf('%s/%s.%s', sha1($photo->id), $file->getClientOriginalName(), $file->getClientOriginalExtension());
+            $uploaded_file = $this->streamFile($file->getRealPath(), $destination_path);
+            // $this->performConversions($uploaded_file);
         }
 
         return response()->json(['success' => true]);
+    }
+
+    public function streamFile($file_path, $destination_path)
+    {
+      $stream = fopen($file_path, 'r+');
+      $this->photo_private_disk->writeStream($destination_path, $stream);
+      if (is_resource($stream)) {
+        fclose($stream);
+      }
+
+      return $this->photo_private_disk->get($destination_path);
+    }
+
+    public function performConversions($file)
+    {
+
+
     }
 
     /**
@@ -99,7 +126,7 @@ class PhotosController extends Controller
     public function destroy($id)
     {
         $photo = Photo::find($id);
-        $photo->forceDelete();
+        $photo->delete();
 
         return redirect()->back();
     }

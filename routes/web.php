@@ -20,9 +20,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Auth::routes();
 
     Route::group(['middleware' => ['auth']], function () {
-        Route::get('/', 'PhotosController@index');
-        Route::post('photos/reorder', 'PhotosController@reorder');
-        Route::resource('photos', 'PhotosController');
+        Route::get('/', 'AdminController@index');
+        Route::post('photos/reorder', 'AdminController@reorder');
+        Route::resource('photos', 'AdminController');
     });
 });
 

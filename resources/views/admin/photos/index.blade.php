@@ -10,31 +10,26 @@
 </form>
 <div id="photos">
 
-  <div class="ui eight cards">
+  <div class="ui four cards">
    @foreach($photos as $photo)
     <div class="card">
+      <div class="content">
+        <i class="right floated trash icon"></i>
+        <i class="right floated pencil icon"></i>
+        <i class="right floated move icon"></i>
+        <div class="header">{{$photo->filename}}</div>
+        <div class="description">
+
+        </div>
+      </div>
       <div class="image">
         <img class="ui image" src="{{ $photo->url }}" alt="Photo not found" title="{{$photo->filename}}" />
       </div>
-     <div class="content">
-      <div class="header">{{$photo->filename}}</div>
+{{--      <div class="content">
       <div class="meta">
         <a>{{$photo->extension}}</a>
       </div>
-{{--       <div class="description">
-        Matthew is an interior designer living in New York.
-      </div>
-      </div>
-      <div class="extra content">
-        <span class="right floated">
-          Joined in 2013
-        </span>
-        <span>
-          <i class="user icon"></i>
-          75 Friends
-        </span>
-      </div> --}}
-      </div>
+    </div> --}}
     </div>
     @endforeach
   </div>

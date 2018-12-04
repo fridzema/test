@@ -6,18 +6,25 @@
 
 @section('content')
 <form id="dropzone" class="dropzone">
-  <div class="dz-message" data-dz-message><span>Upload</span></div>
+  <div class="dz-message" data-dz-message><i class="upload icon"></i></div>
 </form>
-<div id="photos">
 
-  <div class="ui four cards">
+<div class="ui segment">
+  <div class="ui four cards" id="photos">
    @foreach($photos as $photo)
-    <div class="card">
+    <div class="card" data-model-id="{{$photo->id}}">
       <div class="content">
-        <i class="right floated trash icon"></i>
-        <i class="right floated pencil icon"></i>
-        <i class="right floated move icon"></i>
-        <div class="header">{{$photo->filename}}</div>
+        <div class="ui mini buttons right floated blue">
+          <div class="ui icon button drag-handle"><i class="move icon"></i></div>
+          <div class="ui icon button"><i class="pencil icon"></i></div>
+          <div class="ui icon button" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"><i class="trash icon"></i></div>
+          <form id="delete-form" method="post" action="{{ route('photos.destroy', $photo->id) }}" style="display: none;">
+            <input name="_method" type="hidden" value="DELETE" />
+            {{ csrf_field() }}
+          </form>
+        </div>
+
+        <div class="ui ribbon label black">{{$photo->filename}}</div>
         <div class="description">
 
         </div>
@@ -25,27 +32,9 @@
       <div class="image">
         <img class="ui image" src="{{ $photo->url }}" alt="Photo not found" title="{{$photo->filename}}" />
       </div>
-{{--      <div class="content">
-      <div class="meta">
-        <a>{{$photo->extension}}</a>
-      </div>
-    </div> --}}
     </div>
     @endforeach
   </div>
-{{--     <a data-model-id="{{ $photo->id }}" data-order-id="@if(!is_null($photo->id)){{ $photo->id }}@endif">
-      <img src="{{ asset($photo->getMedia('images')->first()->getUrl('small')) }}" alt="Photo not found" title="{{$photo->filename}}" />
-      <button class="btn drag-handle">
-        <img src="{{asset('icons/move.svg')}}" width="20" height="20" />
-      </button>
-     <button type="submit" class="btn delete" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">
-      <img src="{{asset('icons/trash.svg')}}" width="20" height="20" />
-     </button>
-    <form id="delete-form" method="post" action="{{ route('photos.destroy', $photo->id) }}" style="display: none;">
-      <input name="_method" type="hidden" value="DELETE" />
-      {{ csrf_field() }}
-    </form>
-    </a> --}}
 </div>
 @endsection
 

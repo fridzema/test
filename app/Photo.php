@@ -12,10 +12,9 @@ class Photo extends Model
 		{
 		    parent::boot();
 
-		    // Order by name ASC
-		    // static::addGlobalScope('ordered', function (Builder $builder) {
-		    //     $builder->orderBy('order_index', 'asc');
-		    // });
+		    static::addGlobalScope('ordered', function ($builder) {
+		        $builder->orderBy('order_index', 'asc');
+		    });
 		}
 
 

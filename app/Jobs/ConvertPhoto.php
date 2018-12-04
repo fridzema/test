@@ -44,10 +44,6 @@ class ConvertPhoto implements ShouldQueue
           $constraint->aspectRatio();
         })->save();
 
-
-        $destinationPath = public_path('/images');
-        $image->move($destinationPath, $input['imagename']);
-
-        dd($intervention_image->encode());
+        // $image->move($this->photo_private_disk->path($this->photo->FolderName), 'tiny_' . $this->photo->filename);
     }
 }

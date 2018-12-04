@@ -28,10 +28,6 @@ class Photo extends Model
         'iptc' => 'array',
     ];
 
-    public function getFolderNameAttribute()
-    {
-      return sha1($this->id);
-    }
 
     public function getStoragePathAttribute()
     {

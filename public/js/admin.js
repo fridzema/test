@@ -964,8 +964,7 @@ module.exports = Cancel;
 
 __webpack_require__(10);
 __webpack_require__(41);
-__webpack_require__(42);
-module.exports = __webpack_require__(43);
+module.exports = __webpack_require__(42);
 
 
 /***/ }),
@@ -18462,12 +18461,6 @@ if (false) {
 
 /***/ }),
 /* 42 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 43 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

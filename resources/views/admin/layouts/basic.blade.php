@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fridzel </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <link href="{{ asset('semantic/semantic.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/admin.css') }}" rel="stylesheet"> --}}
     @yield('stylesheets')
     <script>
@@ -18,6 +18,7 @@
 
     @include('admin.layouts.partials.logout')
   </div>
+  <script src="{{ asset('semantic/semantic.min.js') }}"></script>
 	@yield('scripts')
 </body>
 </html>

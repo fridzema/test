@@ -1,5 +1,5 @@
 <?php
 
 return [
-  'image_placeholder_url' => asset('img/placeholder.png')
+  'image_placeholder_url' => 'img/placeholder.png'
 ];

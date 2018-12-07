@@ -13,12 +13,12 @@
     </script>
 </head>
 <body>
-  <div id="app">
+  <div id="app" class="ui container">
     @yield('content')
 
     @include('admin.layouts.partials.logout')
   </div>
-  <script src="{{ asset('semantic/semantic.min.js') }}"></script>
+  {{-- <script src="{{ asset('semantic/semantic.min.js') }}"></script> --}}
 	@yield('scripts')
 </body>
 </html>

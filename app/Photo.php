@@ -28,6 +28,14 @@ class Photo extends Model
         'iptc' => 'array',
     ];
 
+    protected $appends = ['thumbnails'];
+    protected $hidden = ['extension', 'exif', 'iptc'];
+
+
+    public function getStorageDiskAttribute()
+    {
+      return Storage::disk('photos_private');
+    }
 
     public function getStoragePathAttribute()
     {
@@ -37,6 +45,21 @@ class Photo extends Model
     public function getFilePathAttribute()
     {
       return sprintf('%s/%s', $this->getStoragePathAttribute(), $this->filename);
+    }
+
+    public function getThumbnailsAttribute()
+    {
+      $thumbnails = [];
+
+      if($this->getStorageDiskAttribute()->exists($this->FilePath)){
+        $thumbnails['original'] = asset($this->getStorageDiskAttribute()->url($this->FilePath));
+
+        foreach(config('system.thumbnails.sizes') as $size){
+          $thumbnails[$size] = asset($this->getStorageDiskAttribute()->url($this->getStoragePathAttribute(). '/' . $size . '.jpg'));
+        }
+      }
+
+      return $thumbnails;
     }
 
     public function getUrlAttribute()

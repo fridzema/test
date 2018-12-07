@@ -16,31 +16,13 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('uploader', require('./components/Uploader.vue'));
+Vue.component('photo-grid', require('./components/PhotoGrid.vue'));
 
 const app = new Vue({
     el: '#app'
 });
 
-
-
-var uploadErrors = false;
-
-new Dropzone("#dropzone", {
-    params: {
-      _token: window.Laravel.csrfToken,
-    },
-    url: '/admin/photos',
-    autoProcessQueue: true,
-    maxFilesize: 100,
-    parallelUploads: 10,
-    uploadMultiple: true,
-    error: function() {
-      uploadErrors = true;
-  	},
-    queuecomplete: function(){
-    	if(!uploadErrors) location.reload();
-    }
-});
 
 var el = document.getElementById('photos');
 var sortable = Sortable.create(el, {

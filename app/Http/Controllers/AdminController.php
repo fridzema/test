@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
 use Storage;
 use App\Jobs\ConvertPhoto;
+
+use Image;
 
 class AdminController extends Controller
 {
@@ -68,9 +69,22 @@ class AdminController extends Controller
             // $photo->iptc = $iptc_data;
             $photo->save();
 
-            $uploaded_file = $this->streamFile($file->getRealPath(), $photo->storage_path);
+            $uploaded_file = $this->streamFile($file->getRealPath(), $photo->filepath);
+
+             $intervention_image = Image::make($file->getRealPath());
+
+             $sizes = ['200', '400', '600', '800', '1000'];
+
+            foreach($sizes as $size){
+              $intervention_image->resize($size, null, function ($constraint) {
+                $constraint->aspectRatio();
+              });
+
+              $this->photo_private_disk->put(sprintf('%s/%s', $photo->storage_path, $size . '.jpg'), (string) $intervention_image->encode('jpg'));
+            }
+
+            // ConvertPhoto::dispatch($photo);
             // IndexPhoto::dispatchNow($photo);
-            ConvertPhoto::dispatchNow($photo);
         }
 
         return response()->json(['success' => true]);

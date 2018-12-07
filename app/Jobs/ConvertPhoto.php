@@ -38,11 +38,24 @@ class ConvertPhoto implements ShouldQueue
      */
     public function handle()
     {
-        $intervention_image = Image::make($this->photo_private_disk->path($this->photo->storage_path));
+        $intervention_image = Image::make($this->photo_private_disk->path($this->photo->filepath));
 
-        $intervention_image->resize(100, 100, function ($constraint) {
-          $constraint->aspectRatio();
-        })->save();
+        $sizes = ['200', '400', '600', '800', '1000'];
+
+        foreach($sizes as $size){
+          $intervention_image->resize($size, null, function ($constraint) {
+            $constraint->aspectRatio();
+          })->save(public_path('/photos/' . $this->photo->StoragePath . '/' . $size . '.jpg'));
+
+          // $stream = $intervention_image->stream('jpg', 60);
+          // $this->photo_private_disk->writeStream(sprintf('%s/%s', $this->photo->storage_path, $size . '.jpg'), $stream);
+          // if (is_resource($stream)) {
+          //   fclose($stream);
+          // }
+
+          unset($intervention_image);
+          // unset($stream);
+        }
 
         // $image->move($this->photo_private_disk->path($this->photo->FolderName), 'tiny_' . $this->photo->filename);
     }

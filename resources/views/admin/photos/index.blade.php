@@ -1,9 +1,5 @@
 @extends('admin.layouts.basic')
 
-@section('stylesheets')
-	<link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
-@endsection
-
 @section('content')
   <uploader></uploader>
   <photo-grid></photo-grid>

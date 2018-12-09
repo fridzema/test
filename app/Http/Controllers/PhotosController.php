@@ -22,7 +22,9 @@ class PhotosController extends Controller
 
     public function index()
     {
-      $photos = Photo::all();
+      $photos = Photo::select('id', 'thumbs', 'filename')
+                ->orderBy('created_at', 'desc')
+                ->paginate(9);
 
       return response()->json($photos);
     }
@@ -71,6 +73,7 @@ class PhotosController extends Controller
 
               $this->photo_private_disk->put(sprintf('%s/%s', $photo->storage_path, $size . '.jpg'), (string) $intervention_image->encode('jpg'));
             }
+
 
             // ConvertPhoto::dispatch($photo);
             // IndexPhoto::dispatchNow($photo);
@@ -144,13 +147,15 @@ class PhotosController extends Controller
 
     public function reorder(Request $request){
       // http://stackoverflow.com/questions/15633341/jquery-ui-sortable-then-write-order-into-a-database/15635201#15635201
+
       $i = 0;
       foreach ($request->input('sort_order') as $value) {
+        $i++;
+
         $photo = Photo::find($value);
         $photo->order_index = $i;
         $photo->save();
 
-        $i++;
       }
 
       return response()->json(['success' => true]);

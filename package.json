@@ -16,9 +16,11 @@
     "laravel-mix": "^2.0",
     "lodash": "^4.17.5",
     "sortablejs": "^1.6.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "semantic-ui": "^2.4.2"
   },
   "dependencies": {
-    "semantic-ui": "^2.4.2"
+    "vue-infinite-loading": "^2.4.3",
+    "vue-resource": "^1.5.1"
   }
 }

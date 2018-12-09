@@ -1,11 +1,12 @@
 <template>
-  <div class="ui segment">
-    <div class="ui four cards" id="photos">
-      <div class="card" v-for="item in items">
+  <div class="ui segment" v-bind:class="[{ loading: items.length == 0 }]">
+    <div class="ui three cards" id="sortable-container">
+      <div class="card" v-for="item in items" :data-model-id="item.id">
         <div class="content">
           <div class="ui mini buttons right floated blue">
             <div class="ui icon button drag-handle"><i class="move icon"></i></div>
             <div class="ui icon button"><i class="pencil icon"></i></div>
+            <div class="ui icon button"><i class="trash icon"></i></div>
 
           </div>
 
@@ -26,13 +27,44 @@
     export default {
         data () {
           return {
-            items: []
+            items: [],
+            page: 1
           }
+        },
+       methods: {
+          infiniteHandler($state) {
+              let vm = this;
+
+              this.$http.get('/posts?page='+this.page)
+                  .then(response => {
+                      return response.json();
+                  }).then(data => {
+                      $.each(data.data, function(key, value) {
+                              vm.items.push(value);
+                      });
+                      $state.loaded();
+                  });
+
+              this.page = this.page + 1;
+          },
         },
         mounted() {
           axios
           .get('/admin/photos')
-          .then(response => (this.items = response.data))
+          .then(response => (this.items = response.data.data))
+
+          var el = document.getElementById('sortable-container');
+          var sortable = Sortable.create(el, {
+            dataIdAttr: 'data-model-id',
+            handle: '.drag-handle',
+            sort: true,
+            animation: 150,
+            scrollSensitivity: 150,
+            scrollSpeed: 100,
+            onEnd: function (evt) {
+              axios.post('/admin/photos/reorder', {sort_order: sortable.toArray()});
+            },
+          });
 
           console.log('Photogrid mounted')
         }

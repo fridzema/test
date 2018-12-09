@@ -3,7 +3,7 @@
     <div class="dz-message" data-dz-message><i class="upload icon"></i></div>
   </form>
 </template>
-
+<style src="../../../public/css/uploader.css"></style>
 <script>
     export default {
         mounted() {
@@ -16,14 +16,14 @@
               url: '/admin/photos',
               autoProcessQueue: true,
               maxFilesize: 100,
-              parallelUploads: 10,
+              parallelUploads: 1,
               uploadMultiple: true,
               error: function() {
                 uploadErrors = true;
               },
               success: function (evt, response){
-                // console.log(evt, response)
-                this.$emit('FileUploaded', response);
+                // // console.log(evt, response)
+                // this.$emit('ItemAdded', response);
               }
               // queuecomplete: function(){
               //   if(!uploadErrors){

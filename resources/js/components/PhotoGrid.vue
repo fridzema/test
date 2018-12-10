@@ -38,13 +38,18 @@
           infiniteHandler($state) {
               let vm = this;
 
-              this.$http.get('/posts?page='+this.page)
+              this.$http.get('/admin/photos?page='+this.page)
                   .then(response => {
                       return response.json();
                   }).then(data => {
-                      $.each(data.data, function(key, value) {
-                              vm.items.push(value);
+                      // $$.each(data.data, function(key, value) {
+                      //     vm.items.push(value);
+                      // });
+
+                      data.data.forEach(function (value, key) {
+                        vm.items.push(value);
                       });
+
                       $state.loaded();
                   });
 
@@ -54,25 +59,27 @@
             axios
             .get('/admin/photos')
             .then(response => (this.items = response.data.data))
+          },
+          makeSortable() {
+            var el = document.getElementById('sortable-container');
+            var sortable = Sortable.create(el, {
+              dataIdAttr: 'data-model-id',
+              handle: '.drag-handle',
+              sort: true,
+              animation: 150,
+              scrollSensitivity: 150,
+              scrollSpeed: 100,
+              onEnd: function (evt) {
+                axios.post('/admin/photos/reorder', {sort_order: sortable.toArray()});
+              },
+            });
           }
         },
         mounted() {
           this.fetch()
+          this.makeSortable()
 
-          var el = document.getElementById('sortable-container');
-          var sortable = Sortable.create(el, {
-            dataIdAttr: 'data-model-id',
-            handle: '.drag-handle',
-            sort: true,
-            animation: 150,
-            scrollSensitivity: 150,
-            scrollSpeed: 100,
-            onEnd: function (evt) {
-              axios.post('/admin/photos/reorder', {sort_order: sortable.toArray()});
-            },
-          });
-
-          Event.$on('FileUploaded', (response) => {
+          Event.$on('AllFilesUploaded', (response) => {
             this.fetch()
           });
 

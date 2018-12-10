@@ -15,12 +15,13 @@
     "dropzone": "^5.1.1",
     "laravel-mix": "^2.0",
     "lodash": "^4.17.5",
+    "semantic-ui": "^2.4.2",
     "sortablejs": "^1.6.0",
-    "vue": "^2.5.17",
-    "semantic-ui": "^2.4.2"
-  },
-  "dependencies": {
+    "vue": "^2.5.19",
     "vue-infinite-loading": "^2.4.3",
     "vue-resource": "^1.5.1"
+  },
+  "dependencies": {
+    "vue-template-compiler": "^2.5.19"
   }
 }

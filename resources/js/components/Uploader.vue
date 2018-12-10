@@ -7,10 +7,17 @@
 <script>
     import Event from '../event.js';
     export default {
+        methods: {
+          reset(Uploader){
+            Uploader.removeAllFiles();
+          }
+        },
         mounted() {
+          var component = this;
+
           var uploadErrors = false;
 
-          new Dropzone("#dropzone", {
+          var Uploader = new Dropzone("#dropzone", {
               params: {
                 _token: window.Laravel.csrfToken,
               },
@@ -22,16 +29,15 @@
               error: function() {
                 uploadErrors = true;
               },
-              success: function (evt, response){
-                // // console.log(evt, response)
-                // this.$emit('ItemAdded', response);
-                Event.$emit('FileUploaded', response);
+              // success: function (evt, response){
+              //   Event.$emit('FileUploaded', response);
+              // },
+              queuecomplete: function(){
+                if(!uploadErrors){
+                  Event.$emit('AllFilesUploaded', true);
+                  component.reset(Uploader);
+                }
               }
-              // queuecomplete: function(){
-              //   if(!uploadErrors){
-              //     this.$root.$emit('FileUploaded', 'new message!');
-              //   }
-              // }
           });
 
           console.log('Uploader mounted')

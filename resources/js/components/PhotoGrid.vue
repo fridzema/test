@@ -42,10 +42,6 @@
                   .then(response => {
                       return response.json();
                   }).then(data => {
-                      // $$.each(data.data, function(key, value) {
-                      //     vm.items.push(value);
-                      // });
-
                       data.data.forEach(function (value, key) {
                         vm.items.push(value);
                       });

@@ -19,11 +19,14 @@
           <img class="ui image" :src="item.thumbnails[200]" :title="item.filename" alt="Photo not found" />
         </div>
       </div>
+      <infinite-loading @distance="1" @infinite="infiniteHandler"></infinite-loading>
     </div>
   </div>
 </template>
 
 <script>
+  import Event from '../event.js';
+
     export default {
         data () {
           return {
@@ -47,11 +50,14 @@
 
               this.page = this.page + 1;
           },
+          fetch() {
+            axios
+            .get('/admin/photos')
+            .then(response => (this.items = response.data.data))
+          }
         },
         mounted() {
-          axios
-          .get('/admin/photos')
-          .then(response => (this.items = response.data.data))
+          this.fetch()
 
           var el = document.getElementById('sortable-container');
           var sortable = Sortable.create(el, {
@@ -64,6 +70,10 @@
             onEnd: function (evt) {
               axios.post('/admin/photos/reorder', {sort_order: sortable.toArray()});
             },
+          });
+
+          Event.$on('FileUploaded', (response) => {
+            this.fetch()
           });
 
           console.log('Photogrid mounted')

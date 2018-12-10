@@ -5,6 +5,7 @@
 </template>
 <style src="../../../public/css/uploader.css"></style>
 <script>
+    import Event from '../event.js';
     export default {
         mounted() {
           var uploadErrors = false;
@@ -24,6 +25,7 @@
               success: function (evt, response){
                 // // console.log(evt, response)
                 // this.$emit('ItemAdded', response);
+                Event.$emit('FileUploaded', response);
               }
               // queuecomplete: function(){
               //   if(!uploadErrors){

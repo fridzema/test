@@ -2,7 +2,7 @@
     <div class="ui three cards" id="sortable-container">
       <div class="card" v-for="item in items" :data-model-id="item.id">
         <div class="content">
-          <div class="ui mini buttons right floated blue">
+          <div class="ui mini basic buttons right floated blue">
             <a class="ui icon button" :href="'/admin/photo/' + item.id"><i class="eye icon"></i></a>
             <div class="ui icon button drag-handle"><i class="move icon"></i></div>
             <div class="ui icon button"><i class="pencil icon"></i></div>

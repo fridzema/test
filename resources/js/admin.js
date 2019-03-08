@@ -17,6 +17,7 @@ Vue.use(require('vue-resource'));
  */
 Vue.component('uploader', require('./components/Uploader.vue'));
 Vue.component('photo-grid', require('./components/PhotoGrid.vue'));
+Vue.component('deepzoom', require('./components/Deepzoom.vue'));
 
 // https://itsolutionstuff.com/post/laravel-vue-js-infinite-scroll-example-with-demoexample.html
 Vue.component('InfiniteLoading', require('vue-infinite-loading'));

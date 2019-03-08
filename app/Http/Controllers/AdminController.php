@@ -16,4 +16,13 @@ class AdminController extends Controller
         return response()->view('admin.photos.index');
     }
 
+    public function showPhoto($photo_id)
+    {
+        $photo = Photo::findOrFail($photo_id);
+
+        return response()->view('admin.photos.show', [
+          'photo' => $photo
+        ]);
+    }
+
 }

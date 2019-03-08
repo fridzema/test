@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'FrontendController@index');
-    Route::get('photo/{photoId}', 'FrontendController@show')->name('photo.show');
+    Route::get('photo/{photo_id}', 'FrontendController@show')->name('photo.show');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'AdminController@index');
+        Route::get('/photo/{photo_id}', 'AdminController@showPhoto');
         Route::post('photos/reorder', 'PhotosController@reorder');
 
         Route::resource('photos', 'PhotosController');

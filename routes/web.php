@@ -20,7 +20,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Auth::routes();
 
     Route::group(['middleware' => ['auth']], function () {
-        Route::get('/', 'AdminController@index');
+        Route::get('/', 'AdminController@index')->name('dashboard');
         Route::get('/photo/{photo_id}', 'AdminController@showPhoto');
         Route::post('photos/reorder', 'PhotosController@reorder');
 

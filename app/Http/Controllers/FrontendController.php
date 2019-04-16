@@ -14,9 +14,8 @@ class FrontendController extends Controller
     public function index()
     {
         $photos = Photo::all();
-        $response = (count($photos)) ? response()->view('frontend.photos.index', ['photos' => $photos]) : redirect()->route('login');
 
-        return $response;
+        return response()->view('frontend.photos.index', ['photos' => $photos]);
     }
 
     /**

@@ -37,7 +37,7 @@
           infiniteHandler($state) {
               let vm = this;
 
-              this.$http.get('/admin/photos?page='+this.page)
+              this.$http.get('/api/photos?page='+this.page)
                   .then(response => {
                       return response.json();
                   }).then(data => {
@@ -52,7 +52,7 @@
           },
           fetch() {
             axios
-            .get('/admin/photos')
+            .get('/api/photos')
             .then(response => (this.items = response.data.data))
           },
           makeSortable() {

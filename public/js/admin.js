@@ -44810,7 +44810,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     infiniteHandler: function infiniteHandler($state) {
       var vm = this;
 
-      this.$http.get('/api/photos?page=' + this.page).then(function (response) {
+      this.$http.post('/api/user', {
+        api_token: window.AuthUser.api_token
+      }).then(function (response) {
         return response.json();
       }).then(function (data) {
         data.data.forEach(function (value, key) {
@@ -44825,7 +44827,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     fetch: function fetch() {
       var _this = this;
 
-      axios.get('/api/photos').then(function (response) {
+      axios.post('/api/user', {
+        api_token: window.AuthUser.api_token
+      }).then(function (response) {
         return _this.items = response.data.data;
       });
     },

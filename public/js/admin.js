@@ -21005,10 +21005,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var _this = this;
 
     this.getResults();
-    // this.makeSortable()
+    this.makeSortable();
 
     __WEBPACK_IMPORTED_MODULE_0__event_js__["a" /* default */].$on('AllFilesUploaded', function (response) {
-      _this.fetch();
+      _this.getResults();
     });
 
     console.log('Photogrid mounted');
@@ -21123,10 +21123,7 @@ var render = function() {
                     _c("div", { staticClass: "content" }, [
                       _c(
                         "div",
-                        {
-                          staticClass:
-                            "ui mini basic buttons right floated blue"
-                        },
+                        { staticClass: "ui mini basic buttons right floated" },
                         [
                           _c(
                             "a",

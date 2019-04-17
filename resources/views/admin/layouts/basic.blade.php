@@ -16,28 +16,9 @@
     </script>
   </head>
   <body>
-    <div id="app" class="ui container">
-      <div class="ui top attached menu">
-        <a class="ui icon item" href="/admin">
-          <i class="dashboard icon"></i>
-        </a>
-{{--         <a class="ui icon item">
-          <i class="uploader icon"></i>
-        </a> --}}
-        <div class="right menu">
-          <div class="ui right aligned category search item">
-            <div class="ui transparent icon input">
-              <input class="prompt" type="text" placeholder="Search photos...">
-              <i class="search link icon"></i>
-            </div>
-            <div class="results"></div>
-          </div>
-        </div>
-      </div>
-      <div class="ui bottom attached segment">
+    <div id="app" class="ui container" style="margin-top: 10px; margin-bottom: 10px">
         @yield('content')
-      </div>
-      @include('admin.layouts.partials.logout')
+      {{-- @include('admin.layouts.partials.logout') --}}
     </div>
 
     @yield('scripts')

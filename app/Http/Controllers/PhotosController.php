@@ -11,6 +11,8 @@ use App\Jobs\ConvertPhoto;
 
 use Image;
 
+use App\Http\Resources\PhotoCollection;
+
 class PhotosController extends Controller
 {
     protected $photo_private_disk;
@@ -24,11 +26,21 @@ class PhotosController extends Controller
     {
       $photos = Photo::select('id', 'thumbs', 'filename')
                 ->orderBy('created_at', 'desc')
-                ->paginate(9);
+                ->paginate(10);
 
       return response()->json($photos);
     }
 
+
+    public function search(Request $request)
+    {
+
+      $photos = Photo::select('id', 'thumbs', 'filename')
+                ->where('filename', 'LIKE', '%'. $request->input('query') .'%')
+                ->orderBy('created_at', 'desc');
+
+      return new PhotoCollection($photos->paginate(20)->appends(['query' => $request->input('query')]));
+    }
 
     /**
      * Show the form for creating a new resource.

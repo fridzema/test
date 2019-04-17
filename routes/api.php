@@ -13,9 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api', 'throttle:60,1')->group(function () {
+Route::middleware('web', 'throttle:60,1')->group(function () {
   Route::resource('photos', 'PhotosController');
-  Route::get('/user', function(Request $request) {
-    return $request->user();
-});
+  Route::post('search/photos', 'PhotosController@search');
 });

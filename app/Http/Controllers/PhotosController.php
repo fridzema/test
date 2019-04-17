@@ -60,7 +60,7 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
-        foreach ($request->file('file') as $file) {
+        foreach ($request->file('files') as $file) {
             // $exif_data = [];
             // $iptc_data = [];
             // $intervention_image = Image::make($file->getRealPath());

@@ -1,5 +1,8 @@
 require('./bootstrap');
 
+
+  require('es6-promise/auto')
+require('whatwg-fetch')
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

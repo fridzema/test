@@ -19,7 +19,7 @@
     </div>
     <div class="ui bottom attached clearing segment">
       <uploader v-if="uploader"></uploader>
-      <div v-if="results.data.length" class="ui six cards" id="sortable-container">
+      <div v-if="results.data" class="ui six cards" id="sortable-container">
         <div class="card" v-for="item in results.data" :data-model-id="item.id">
           <!-- <div class="content">
             <div class="ui mini basic buttons right floated">
@@ -94,7 +94,7 @@
       },
       created() {
         this.getResults();
-        this.makeSortable()
+        // this.makeSortable()
 
         Event.$on('AllFilesUploaded', (response) => {
           this.getResults()

@@ -20444,7 +20444,7 @@ exports = module.exports = __webpack_require__(46)(false);
 
 
 // module
-exports.push([module.i, "\n@-webkit-keyframes passing-through {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30%, 70% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n100% {\n    opacity: 0;\n    -webkit-transform: translateY(-40px);\n    transform: translateY(-40px);\n}\n}\n@keyframes passing-through {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30%, 70% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n100% {\n    opacity: 0;\n    -webkit-transform: translateY(-40px);\n    transform: translateY(-40px);\n}\n}\n@-webkit-keyframes slide-in {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n}\n@keyframes slide-in {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n}\n@-webkit-keyframes pulse {\n0% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n10% {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n20% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n}\n@keyframes pulse {\n0% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n10% {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n20% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n}\n.dropzone {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  position: relative;\n  min-height: 150px;\n  background: #225378;\n  padding: 20px 20px;\n  margin-bottom: 20px;\n}\n.dropzone * {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.dropzone.dz-clickable {\n  cursor: pointer;\n}\n.dropzone.dz-clickable * {\n  cursor: default;\n}\n.dropzone.dz-clickable .dz-message {\n  cursor: pointer;\n}\n.dropzone.dz-clickable .dz-message * {\n  cursor: pointer;\n}\n.dropzone.dz-started .dz-message {\n  display: none;\n}\n.dropzone.dz-drag-hover {\n  border-style: solid;\n}\n.dropzone.dz-drag-hover .dz-message {\n  opacity: 0.5;\n}\n.dropzone .dz-message {\n  text-align: center;\n  margin: 2em 0;\n  color: #fff;\n  font-weight: bold;\n  font-size: 20px;\n}\n.dropzone .dz-preview {\n  position: relative;\n  display: inline-block;\n  vertical-align: top;\n  margin: 5px;\n  min-height: 100px;\n}\n.dropzone .dz-preview:hover {\n  z-index: 1000;\n}\n.dropzone .dz-preview:hover .dz-details {\n  opacity: 1;\n}\n.dropzone .dz-preview.dz-file-preview .dz-image {\n  background: #999;\n  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));\n  background: linear-gradient(to bottom, #eee, #ddd);\n}\n.dropzone .dz-preview.dz-file-preview .dz-details {\n  opacity: 1;\n}\n.dropzone .dz-preview.dz-image-preview .dz-details {\n  -webkit-transition: opacity 0.2s linear;\n  transition: opacity 0.2s linear;\n}\n.dropzone .dz-preview:hover .dz-details {\n  opacity: 1;\n}\n.dropzone .dz-preview .dz-details {\n  z-index: 20;\n  position: absolute;\n  top: 0;\n  left: 0;\n  opacity: 0;\n  font-size: 13px;\n  min-width: 100%;\n  max-width: 100%;\n  padding: 2em 1em;\n  text-align: center;\n  color: rgba(0, 0, 0, 0.9);\n  line-height: 150%;\n}\n.dropzone .dz-preview .dz-details .dz-size {\n  margin-bottom: 1em;\n  font-size: 16px;\n}\n.dropzone .dz-preview .dz-details .dz-filename {\n  white-space: nowrap;\n}\n.dropzone .dz-preview .dz-details .dz-filename:hover span {\n  border: 1px solid rgba(200, 200, 200, 0.8);\n  background-color: rgba(255, 255, 255, 0.8);\n}\n.dropzone .dz-preview .dz-details .dz-filename:not(:hover) {\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.dropzone .dz-preview .dz-details .dz-filename:not(:hover) span {\n  border: 1px solid transparent;\n}\n.dropzone .dz-preview .dz-details .dz-filename span {\n  background-color: rgba(255, 255, 255, 0.4);\n  padding: 0 0.4em;\n  border-radius: 3px;\n}\n.dropzone .dz-preview .dz-details .dz-size span {\n  background-color: rgba(255, 255, 255, 0.4);\n  padding: 0 0.4em;\n  border-radius: 3px;\n}\n.dropzone .dz-preview:hover .dz-image img {\n  -webkit-transform: scale(1.05, 1.05);\n  transform: scale(1.05, 1.05);\n  -webkit-filter: blur(8px);\n  filter: blur(8px);\n}\n.dropzone .dz-preview .dz-image {\n  overflow: hidden;\n  width: 120px;\n  height: 120px;\n  position: relative;\n  display: block;\n  z-index: 10;\n}\n.dropzone .dz-preview .dz-image img {\n  display: block;\n}\n.dropzone .dz-preview.dz-success .dz-success-mark {\n  -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);\n  animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);\n}\n.dropzone .dz-preview.dz-error .dz-error-mark {\n  opacity: 1;\n  -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);\n  animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);\n}\n.dropzone .dz-preview .dz-success-mark,\n.dropzone .dz-preview .dz-error-mark {\n  pointer-events: none;\n  opacity: 0;\n  z-index: 500;\n  position: absolute;\n  display: block;\n  top: 50%;\n  left: 50%;\n  margin-left: -27px;\n  margin-top: -27px;\n}\n.dropzone .dz-preview .dz-success-mark svg,\n.dropzone .dz-preview .dz-error-mark svg {\n  display: block;\n  width: 54px;\n  height: 54px;\n}\n.dropzone .dz-preview.dz-processing .dz-progress {\n  opacity: 1;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n}\n.dropzone .dz-preview.dz-complete .dz-progress {\n  opacity: 0;\n  -webkit-transition: opacity 0.4s ease-in;\n  transition: opacity 0.4s ease-in;\n}\n.dropzone .dz-preview:not(.dz-processing) .dz-progress {\n  -webkit-animation: pulse 6s ease infinite;\n  animation: pulse 6s ease infinite;\n}\n.dropzone .dz-preview .dz-progress {\n  opacity: 1;\n  z-index: 1000;\n  pointer-events: none;\n  position: absolute;\n  height: 16px;\n  left: 50%;\n  top: 50%;\n  margin-top: -8px;\n  width: 80px;\n  margin-left: -40px;\n  background: rgba(255, 255, 255, 0.9);\n  -webkit-transform: scale(1);\n  border-radius: 8px;\n  overflow: hidden;\n}\n.dropzone .dz-preview .dz-progress .dz-upload {\n  background: #333;\n  background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#444));\n  background: linear-gradient(to bottom, #666, #444);\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  width: 0;\n  -webkit-transition: width 300ms ease-in-out;\n  transition: width 300ms ease-in-out;\n}\n.dropzone .dz-preview.dz-error .dz-error-message {\n  display: block;\n}\n.dropzone .dz-preview.dz-error:hover .dz-error-message {\n  opacity: 1;\n  pointer-events: auto;\n}\n.dropzone .dz-preview .dz-error-message {\n  pointer-events: none;\n  z-index: 1000;\n  position: absolute;\n  display: block;\n  display: none;\n  opacity: 0;\n  -webkit-transition: opacity 0.3s ease;\n  transition: opacity 0.3s ease;\n  border-radius: 8px;\n  font-size: 13px;\n  top: 130px;\n  left: -10px;\n  width: 140px;\n  background: #be2626;\n  background: -webkit-gradient(linear, left top, left bottom, from(#be2626), to(#a92222));\n  background: linear-gradient(to bottom, #be2626, #a92222);\n  padding: 0.5em 1.2em;\n  color: white;\n}\n.dropzone .dz-preview .dz-error-message:after {\n  content: '';\n  position: absolute;\n  top: -6px;\n  left: 64px;\n  width: 0;\n  height: 0;\n  border-left: 6px solid transparent;\n  border-right: 6px solid transparent;\n  border-bottom: 6px solid #be2626;\n}\n\n", ""]);
+exports.push([module.i, "\n@-webkit-keyframes passing-through {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30%, 70% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n100% {\n    opacity: 0;\n    -webkit-transform: translateY(-40px);\n    transform: translateY(-40px);\n}\n}\n@keyframes passing-through {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30%, 70% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n100% {\n    opacity: 0;\n    -webkit-transform: translateY(-40px);\n    transform: translateY(-40px);\n}\n}\n@-webkit-keyframes slide-in {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n}\n@keyframes slide-in {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(40px);\n    transform: translateY(40px);\n}\n30% {\n    opacity: 1;\n    -webkit-transform: translateY(0px);\n    transform: translateY(0px);\n}\n}\n@-webkit-keyframes pulse {\n0% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n10% {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n20% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n}\n@keyframes pulse {\n0% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n10% {\n    -webkit-transform: scale(1.1);\n    transform: scale(1.1);\n}\n20% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n}\n.dropzone {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  position: relative;\n  min-height: 150px;\n  background: #225378;\n  margin-bottom: 20px;\n}\n.dropzone * {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.dropzone.dz-clickable {\n  cursor: pointer;\n}\n.dropzone.dz-clickable * {\n  cursor: default;\n}\n.dropzone.dz-clickable .dz-message {\n  cursor: pointer;\n}\n.dropzone.dz-clickable .dz-message * {\n  cursor: pointer;\n}\n.dropzone.dz-started .dz-message {\n  display: none;\n}\n.dropzone.dz-drag-hover {\n  border-style: solid;\n}\n.dropzone.dz-drag-hover .dz-message {\n  opacity: 0.5;\n}\n.dropzone .dz-message {\n  text-align: center;\n  margin: 2em 0;\n  color: #fff;\n  font-weight: bold;\n  font-size: 20px;\n}\n.dropzone .dz-preview {\n  position: relative;\n  display: inline-block;\n  vertical-align: top;\n  margin: 5px;\n  min-height: 100px;\n}\n.dropzone .dz-preview:hover {\n  z-index: 1000;\n}\n.dropzone .dz-preview:hover .dz-details {\n  opacity: 1;\n}\n.dropzone .dz-preview.dz-file-preview .dz-image {\n  background: #999;\n  background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));\n  background: linear-gradient(to bottom, #eee, #ddd);\n}\n.dropzone .dz-preview.dz-file-preview .dz-details {\n  opacity: 1;\n}\n.dropzone .dz-preview.dz-image-preview .dz-details {\n  -webkit-transition: opacity 0.2s linear;\n  transition: opacity 0.2s linear;\n}\n.dropzone .dz-preview:hover .dz-details {\n  opacity: 1;\n}\n.dropzone .dz-preview .dz-details {\n  z-index: 20;\n  position: absolute;\n  top: 0;\n  left: 0;\n  opacity: 0;\n  font-size: 13px;\n  min-width: 100%;\n  max-width: 100%;\n  padding: 2em 1em;\n  text-align: center;\n  color: rgba(0, 0, 0, 0.9);\n  line-height: 150%;\n}\n.dropzone .dz-preview .dz-details .dz-size {\n  margin-bottom: 1em;\n  font-size: 16px;\n}\n.dropzone .dz-preview .dz-details .dz-filename {\n  white-space: nowrap;\n}\n.dropzone .dz-preview .dz-details .dz-filename:hover span {\n  border: 1px solid rgba(200, 200, 200, 0.8);\n  background-color: rgba(255, 255, 255, 0.8);\n}\n.dropzone .dz-preview .dz-details .dz-filename:not(:hover) {\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.dropzone .dz-preview .dz-details .dz-filename:not(:hover) span {\n  border: 1px solid transparent;\n}\n.dropzone .dz-preview .dz-details .dz-filename span {\n  background-color: rgba(255, 255, 255, 0.4);\n  padding: 0 0.4em;\n  border-radius: 3px;\n}\n.dropzone .dz-preview .dz-details .dz-size span {\n  background-color: rgba(255, 255, 255, 0.4);\n  padding: 0 0.4em;\n  border-radius: 3px;\n}\n.dropzone .dz-preview:hover .dz-image img {\n  -webkit-transform: scale(1.05, 1.05);\n  transform: scale(1.05, 1.05);\n  -webkit-filter: blur(8px);\n  filter: blur(8px);\n}\n.dropzone .dz-preview .dz-image {\n  overflow: hidden;\n  width: 120px;\n  height: 120px;\n  position: relative;\n  display: block;\n  z-index: 10;\n}\n.dropzone .dz-preview .dz-image img {\n  display: block;\n}\n.dropzone .dz-preview.dz-success .dz-success-mark {\n  -webkit-animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);\n  animation: passing-through 3s cubic-bezier(0.77, 0, 0.175, 1);\n}\n.dropzone .dz-preview.dz-error .dz-error-mark {\n  opacity: 1;\n  -webkit-animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);\n  animation: slide-in 3s cubic-bezier(0.77, 0, 0.175, 1);\n}\n.dropzone .dz-preview .dz-success-mark,\n.dropzone .dz-preview .dz-error-mark {\n  pointer-events: none;\n  opacity: 0;\n  z-index: 500;\n  position: absolute;\n  display: block;\n  top: 50%;\n  left: 50%;\n  margin-left: -27px;\n  margin-top: -27px;\n}\n.dropzone .dz-preview .dz-success-mark svg,\n.dropzone .dz-preview .dz-error-mark svg {\n  display: block;\n  width: 54px;\n  height: 54px;\n}\n.dropzone .dz-preview.dz-processing .dz-progress {\n  opacity: 1;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n}\n.dropzone .dz-preview.dz-complete .dz-progress {\n  opacity: 0;\n  -webkit-transition: opacity 0.4s ease-in;\n  transition: opacity 0.4s ease-in;\n}\n.dropzone .dz-preview:not(.dz-processing) .dz-progress {\n  -webkit-animation: pulse 6s ease infinite;\n  animation: pulse 6s ease infinite;\n}\n.dropzone .dz-preview .dz-progress {\n  opacity: 1;\n  z-index: 1000;\n  pointer-events: none;\n  position: absolute;\n  height: 16px;\n  left: 50%;\n  top: 50%;\n  margin-top: -8px;\n  width: 80px;\n  margin-left: -40px;\n  background: rgba(255, 255, 255, 0.9);\n  -webkit-transform: scale(1);\n  border-radius: 8px;\n  overflow: hidden;\n}\n.dropzone .dz-preview .dz-progress .dz-upload {\n  background: #333;\n  background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#444));\n  background: linear-gradient(to bottom, #666, #444);\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  width: 0;\n  -webkit-transition: width 300ms ease-in-out;\n  transition: width 300ms ease-in-out;\n}\n.dropzone .dz-preview.dz-error .dz-error-message {\n  display: block;\n}\n.dropzone .dz-preview.dz-error:hover .dz-error-message {\n  opacity: 1;\n  pointer-events: auto;\n}\n.dropzone .dz-preview .dz-error-message {\n  pointer-events: none;\n  z-index: 1000;\n  position: absolute;\n  display: block;\n  display: none;\n  opacity: 0;\n  -webkit-transition: opacity 0.3s ease;\n  transition: opacity 0.3s ease;\n  border-radius: 8px;\n  font-size: 13px;\n  top: 130px;\n  left: -10px;\n  width: 140px;\n  background: #be2626;\n  background: -webkit-gradient(linear, left top, left bottom, from(#be2626), to(#a92222));\n  background: linear-gradient(to bottom, #be2626, #a92222);\n  padding: 0.5em 1.2em;\n  color: white;\n}\n.dropzone .dz-preview .dz-error-message:after {\n  content: '';\n  position: absolute;\n  top: -6px;\n  left: 64px;\n  width: 0;\n  height: 0;\n  border-left: 6px solid transparent;\n  border-right: 6px solid transparent;\n  border-bottom: 6px solid #be2626;\n}\n\n", ""]);
 
 // exports
 
@@ -20989,6 +20989,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -21112,7 +21137,7 @@ var render = function() {
           ? _c(
               "div",
               {
-                staticClass: "ui three cards",
+                staticClass: "ui six cards",
                 attrs: { id: "sortable-container" }
               },
               _vm._l(_vm.results.data, function(item) {
@@ -21121,51 +21146,38 @@ var render = function() {
                   { staticClass: "card", attrs: { "data-model-id": item.id } },
                   [
                     _c("div", { staticClass: "content" }, [
-                      _c(
-                        "div",
-                        { staticClass: "ui mini basic buttons right floated" },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "ui icon button",
-                              attrs: { href: "/admin/photo/" + item.id }
-                            },
-                            [_c("i", { staticClass: "eye icon" })]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(0, true),
-                          _vm._v(" "),
-                          _vm._m(1, true),
-                          _vm._v(" "),
-                          _vm._m(2, true)
-                        ]
-                      ),
+                      _c("img", {
+                        staticClass: "right floated mini ui image",
+                        attrs: { src: item.thumbnails[200] }
+                      }),
                       _vm._v(" "),
-                      _c("div", { staticClass: "ui ribbon label black" }, [
-                        _vm._v(_vm._s(item.filename))
+                      _c("div", { staticClass: "header" }, [
+                        _vm._v(
+                          "\n            " +
+                            _vm._s(item.filename) +
+                            "\n          "
+                        )
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "description" })
+                      _c("div", { staticClass: "meta" }, [
+                        _vm._v("\n            Friends of Veronika\n          ")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "description" }, [
+                        _vm._v(
+                          "\n            Elliot requested permission to view your contact details\n          "
+                        )
+                      ])
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "image" }, [
-                      _c("img", {
-                        staticClass: "ui image",
-                        attrs: {
-                          src: item.thumbnails[200],
-                          title: item.filename,
-                          alt: "Photo not found"
-                        }
-                      })
-                    ])
+                    _vm._m(0, true)
                   ]
                 )
               }),
               0
             )
           : _c("div", { staticClass: "ui message warning" }, [
-              _vm._v("\n      No results\n    ")
+              _vm._v("\n        No results\n      ")
             ]),
         _vm._v(" "),
         _c("pagination", {
@@ -21187,24 +21199,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui icon button drag-handle" }, [
-      _c("i", { staticClass: "move icon" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui icon button" }, [
-      _c("i", { staticClass: "pencil icon" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ui icon button" }, [
-      _c("i", { staticClass: "trash icon" })
+    return _c("div", { staticClass: "extra content" }, [
+      _c("div", { staticClass: "ui two buttons" }, [
+        _c("div", { staticClass: "ui basic green button" }, [
+          _vm._v("Approve")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "ui basic red button" }, [_vm._v("Decline")])
+      ])
     ])
   }
 ]

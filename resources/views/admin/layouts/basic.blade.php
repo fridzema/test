@@ -16,7 +16,7 @@
     </script>
   </head>
   <body>
-    <div id="app" class="ui container" style="margin-top: 10px; margin-bottom: 10px">
+    <div id="app">
         @yield('content')
       {{-- @include('admin.layouts.partials.logout') --}}
     </div>

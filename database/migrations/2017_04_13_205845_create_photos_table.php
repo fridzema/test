@@ -17,8 +17,8 @@ class CreatePhotosTable extends Migration
             $table->increments('id');
             $table->string('filename');
             $table->string('extension');
-            $table->json('exif')->nullable();
-            $table->json('iptc')->nullable();
+            $table->string('mimetype');
+            $table->json('metadata')->nullable();
             $table->unsignedInteger('order_index')->nullable();
             $table->timestamps();
             $table->softDeletes();

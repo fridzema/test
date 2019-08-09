@@ -16,9 +16,8 @@
     </script>
   </head>
   <body>
-    <div id="app">
-        @yield('content')
-      {{-- @include('admin.layouts.partials.logout') --}}
+    <div id="app" style="padding: 3%">
+      @yield('content')
     </div>
 
     @yield('scripts')

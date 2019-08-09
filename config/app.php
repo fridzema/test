@@ -175,9 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        Jeremytubbs\LaravelDeepzoom\DeepzoomServiceProvider::class,
-
     ],
 
     /*

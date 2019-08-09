@@ -1,6 +1,6 @@
 <template>
   <div class="ui segment">
-  <photo-grid></photo-grid>
+    <photo-grid></photo-grid>
   </div>
 </template>
 <script>

@@ -20,6 +20,7 @@ window.Vue = require('vue');
 Vue.component('dashboard', require('./components/Dashboard.vue'));
 Vue.component('uploader', require('./components/Uploader.vue'));
 Vue.component('photo-grid', require('./components/PhotoGrid.vue'));
+Vue.component('photo-edit', require('./components/PhotoEdit.vue'));
 Vue.component('pagination', require('./components/Pagination.vue'));
 
 const app = new Vue({

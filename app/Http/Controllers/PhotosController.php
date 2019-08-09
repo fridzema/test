@@ -60,23 +60,23 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
+      // dd([$request->file('files'), $request->input()]);
         foreach ($request->file('files') as $file) {
-            // $exif_data = [];
-            // $iptc_data = [];
-            // $intervention_image = Image::make($file->getRealPath());
-            // $exif_data = ($intervention_image->exif()) ? json_encode($intervention_image->exif()) : null;
-            // $iptc_data = ($intervention_image->iptc()) ? json_encode($intervention_image->iptc()) : null;
 
             $photo = new Photo();
             $photo->filename = $file->getClientOriginalName();
             $photo->extension = $file->getClientOriginalExtension();
-            // $photo->exif = $exif_data;
-            // $photo->iptc = $iptc_data;
+            $photo->mimetype = $file->getMimeType();
             $photo->save();
 
             $uploaded_file = $this->streamFile($file->getRealPath(), $photo->filepath);
 
-             $intervention_image = Image::make($file->getRealPath());
+            $mimetype = $file->getMimeType();
+
+            $intervention_image = Image::make($file->getRealPath());
+            $exif_data = ($intervention_image->exif()) ? json_encode($intervention_image->exif()) : null;
+            $iptc_data = ($intervention_image->iptc()) ? json_encode($intervention_image->iptc()) : null;
+
 
             foreach(config('system.thumbnails.sizes') as $size){
               $intervention_image->resize($size, null, function ($constraint) {
@@ -127,7 +127,9 @@ class PhotosController extends Controller
      */
     public function edit($id)
     {
-        //
+      return view('admin.photos.edit', [
+        'photo' => Photo::findOrFail($id)
+      ]);
     }
 
     /**

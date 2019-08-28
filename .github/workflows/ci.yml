@@ -17,14 +17,14 @@ jobs:
     - name: Composer Action
       uses: MilesChou/composer-action@v0.0.1
       
-    - name: GitHub Action for npm
-      uses: actions/npm@1.0.0
-      
     - name: action-yarn
       uses: comchangs/action-yarn@v0.1-beta
       
-    - name: Run Mix
-      run: yarn run production
+    - name: npm install, build and test
+      run: |
+        yarn install
+        yarn run production
+        yarn test
 
     - name: Run PHPUnit
       run: php7.3 vendor/bin/phpunit

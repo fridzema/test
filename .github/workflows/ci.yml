@@ -14,10 +14,9 @@ jobs:
       with:
         node-version: 12.x
 
-    - name: Install composer dependencies
-      uses: MilesChou/composer-action@master
-      run: install
-
+    - name: Composer Action
+      uses: MilesChou/composer-action@v0.0.1
+      
     - name: Install npm dependencies
       run: npm install
 

@@ -4,6 +4,7 @@
     <title>Test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('semantic/semantic.min.css') }}" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> -->
     <link href="https://transloadit.edgly.net/releases/uppy/v0.30.4/uppy.min.css" rel="stylesheet">
     @yield('stylesheets')
     <script>
@@ -22,6 +23,5 @@
 
     @yield('scripts')
     <script type="text/javascript" src="{{asset('js/admin.js')}}"></script>
-    <script type="text/javascript">Dropzone.autoDiscover = false;</script>
   </body>
 </html>

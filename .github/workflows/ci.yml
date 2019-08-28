@@ -16,7 +16,7 @@ jobs:
 
     - name: Install composer dependencies
       uses: MilesChou/composer-action@master
-      run:  install
+      run: install
 
     - name: Install npm dependencies
       run: npm install

@@ -27,7 +27,6 @@ jobs:
       run: |
         yarn install
         yarn run production
-        yarn test
 
     - name: Run PHPUnit
       run: php7.3 vendor/bin/phpunit

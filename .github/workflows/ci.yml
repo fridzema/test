@@ -15,7 +15,8 @@ jobs:
         node-version: '12.x'
 
     - name: Install composer dependencies
-      run: composer install --prefer-dist
+      uses: MilesChou/composer-action@master
+      run:  install
 
     - name: Install npm dependencies
       run: npm install

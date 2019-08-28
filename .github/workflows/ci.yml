@@ -16,6 +16,7 @@ jobs:
 
     - name: Composer Action
       uses: MilesChou/composer-action@v0.0.1
+      run: install
       
     - name: action-yarn
       uses: comchangs/action-yarn@v0.1-beta
